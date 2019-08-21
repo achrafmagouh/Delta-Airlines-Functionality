@@ -7,18 +7,17 @@ module.exports = {
     after: browser => {
         browser.end()
     },
-    'Test1': browser =>{
-        delta
-            .click('@fromAirport')
-            .setValue('@cityInput', 'SGU')
-            .click('@searchExample')
-            .verify.containsText('@fromAirport', 'SGU')
-            .click('@toAirport')
-            .setValue('@cityInput', 'SLC')
-            .click('@searchExample')
-            .verify.containsText('@toAirport', 'SLC')
-            .pause(2000)
-        
+    'Test1': browser => {
+        flight1.forEach(flight => {
+            delta
+                .fillOutAndVerify(flight)
+                .pause(1000)
+
+
+
+
+        })
+
     }
 
 }
